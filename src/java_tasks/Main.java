@@ -34,6 +34,7 @@ public class Main {
             {
                 System.out.println("Неверный формат ввода.");
             }
+
             String configFilePath = "src/config.properties";
             FileInputStream propsInput = new FileInputStream(configFilePath);
             Properties prop = new Properties();
@@ -41,6 +42,8 @@ public class Main {
             String myurl = prop.getProperty("myurl");
             String login = prop.getProperty("login");
             String password = prop.getProperty("password");
+
+
             switch (x) {
                 case 1 -> {
                     Mysqlconnection con = new Mysqlconnection(myurl, login, password);
