@@ -27,16 +27,20 @@ public class Mysqlconnection {
         {
             query = "INSERT INTO " + tablename  + " ( number, description) VALUES (?, ?)";
         }
-        else
+        else if(table_num == 4)
         {
             query = "INSERT INTO " + tablename  + " ( string1, string2, substring1, substring2, lower1, lower2, upper1, upper2, endswith1, endwith2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+        }
+        else
+        {
+            query = "INSERT INTO " + tablename + " (string1, string2, reverse1, reverse2, append) VALUES (?, ?, ?, ?, ?)";
         }
         return this._con.prepareStatement(query);
     }
 
     public void Create_table(String tablename, int table_num) throws SQLException{
-        String query;
+        String query = null;
         if (table_num == 1)
         {
             query = "CREATE TABLE IF NOT EXISTS " + tablename + " ( value1 int, operation varchar(255), value2 int, answer int)";
@@ -49,9 +53,13 @@ public class Mysqlconnection {
         {
             query = "CREATE TABLE IF NOT EXISTS " + tablename + " ( number int, description varchar(255))";
         }
-        else
+        else if (table_num == 4)
         {
             query = "CREATE TABLE IF NOT EXISTS " + tablename + " ( string1 varchar(255), string2 varchar(255), substring1 varchar(255), substring2 varchar(255), lower1 varchar(255), lower2 varchar(255), upper1 varchar(255), upper2 varchar(255), endswith1 varchar(255), endwith2 varchar(255))";
+        }
+        else
+        {
+            query = "CREATE TABLE IF NOT EXISTS " + tablename + " (string1 varchar(255), string2 varchar(255), reverse1 varchar(255), reverse2 varchar(255), append varchar(255))";;
         }
         Statement stmt1 = this._con.createStatement();
         stmt1.executeUpdate(query);

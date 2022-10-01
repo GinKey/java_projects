@@ -87,4 +87,22 @@ public class Print_result {
         }
 
     }
+
+    public static void print_result5(ResultSet rs) throws IOException, SQLException {
+        Excel_con excon = new Excel_con();
+        Sheet sheet = excon.create_sheet("number5");
+        String[] str = new String [] {"string1", "string2", "reverse1", "reverse2", "append"};
+        excon.excel_add(sheet, 5, str, 0);
+        int k = 1;
+        while(rs.next())
+        {
+            for (int i = 1; i < 6; i++) {
+                System.out.println(Arrays.toString(rs.getString(i).split(" ")));
+                str[i-1] = rs.getString(i);
+            }
+            excon.excel_add(sheet, 5, str, k);
+            System.out.println();
+            k++;
+        }
+    }
 }

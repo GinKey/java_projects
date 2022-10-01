@@ -85,7 +85,7 @@ public class Excel_con {
             this.book.write(new FileOutputStream("Third.xls"));
             this.book.close();
         }
-        else
+        else if(number == 4)
         {
             Row row = sheet.createRow(k);
             Cell string1 = row.createCell(0);
@@ -123,6 +123,30 @@ public class Excel_con {
 
             System.out.println();
             this.book.write(new FileOutputStream("Fourth.xls"));
+            this.book.close();
+        }
+        else
+        {
+            Row row = sheet.createRow(k);
+            Cell string1 = row.createCell(0);
+            Cell string2 = row.createCell(1);
+            Cell reverse1 = row.createCell(2);
+            Cell reverse2 = row.createCell(3);
+            Cell append = row.createCell(4);
+
+            string1.setCellValue(output[0]);
+            string2.setCellValue(output[1]);
+            reverse1.setCellValue(output[2]);
+            reverse2.setCellValue(output[3]);
+            append.setCellValue(output[4]);
+
+            sheet.autoSizeColumn(0);
+            sheet.autoSizeColumn(1);
+            sheet.autoSizeColumn(2);
+            sheet.autoSizeColumn(3);
+            sheet.autoSizeColumn(4);
+            System.out.println();
+            this.book.write(new FileOutputStream("Fifth.xls"));
             this.book.close();
         }
 

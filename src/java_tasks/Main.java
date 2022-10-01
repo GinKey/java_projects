@@ -15,7 +15,7 @@ public class Main {
         String s = "";
         System.out.println("Введите название таблицы: ");
         String tablename = scan.nextLine();
-        System.out.println("Какую задачу решаем от 1 до 4?");
+        System.out.println("Какую задачу решаем от 1 до 5?");
         int number  = scan.nextInt();
 
         while (!"4".equals(s)) {
@@ -87,13 +87,21 @@ public class Main {
                         System.out.println("Данные из текущей БД: ");
                         Print_result.print_result3(rs);
                     }
-                    else
+                    else if(number == 4)
                     {
                         Fourth_num.main_operation(myurl, login, password, tablename);
                         Mysqlconnection con = new Mysqlconnection(myurl, login, password);
                         ResultSet rs = con.execute("SELECT * FROM " + tablename);
                         System.out.println("Данные из текущей БД: ");
                         Print_result.print_result4(rs);
+                    }
+                    else
+                    {
+                        Fifth_num.main_operation(myurl, login, password, tablename);
+                        Mysqlconnection con = new Mysqlconnection(myurl, login, password);
+                        ResultSet rs = con.execute("SELECT * FROM " + tablename);
+                        System.out.println("Данные из текущей БД: ");
+                        Print_result.print_result5(rs);
                     }
                 }
             }
