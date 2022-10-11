@@ -9,7 +9,7 @@ public class Second_num {
 
         Scanner scan = new Scanner(System.in);
         Mysqlconnection con = new Mysqlconnection(myurl, login, password);
-        PreparedStatement stmt = con.Insert_into(tablename, 2);
+        PreparedStatement stmt = con.Insert_into(tablename, " ( string1, string2, len_string1, len_string2, string_sum, comparison) VALUES (?, ?, ?, ?, ?, ?)");
         System.out.println("Введите первую строку");
         String a = scan.nextLine();
         System.out.println("Введите вторую строку");

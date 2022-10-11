@@ -16,7 +16,7 @@ public class First_num {
         int int_num2 = scan.nextInt();
 
         Mysqlconnection con = new Mysqlconnection(myurl, login, password);
-        PreparedStatement stmt = con.Insert_into(tablename, 1);
+        PreparedStatement stmt = con.Insert_into(tablename, " (value1, operation, value2, answer) VALUES (?, ?, ?, ?)");
 
         int[] myArray = new int[9];
         myArray[0] = int_num1 + int_num2;

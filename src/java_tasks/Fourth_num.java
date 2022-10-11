@@ -8,7 +8,7 @@ public class Fourth_num {
     public static void main_operation(String myurl, String login, String password, String tablename) throws SQLException{
         Scanner scan = new Scanner(System.in);
         Mysqlconnection con = new Mysqlconnection(myurl, login, password);
-        PreparedStatement stmt = con.Insert_into(tablename, 4);
+        PreparedStatement stmt = con.Insert_into(tablename, " ( string1, string2, substring1, substring2, lower1, lower2, upper1, upper2, endswith1, endwith2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         System.out.println("Введите первую строку");
         String a = scan.nextLine();
         System.out.println("Введите вторую строку");

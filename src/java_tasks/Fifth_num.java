@@ -9,7 +9,7 @@ public class Fifth_num {
 
         Scanner scan = new Scanner(System.in);
         Mysqlconnection con = new Mysqlconnection(myurl, login, password);
-        PreparedStatement stmt = con.Insert_into(tablename, 5);
+        PreparedStatement stmt = con.Insert_into(tablename, " (string1, string2, reverse1, reverse2, append) VALUES (?, ?, ?, ?, ?)");
         System.out.println("Введите первую строку");
         String str = scan.nextLine();
         System.out.println("Введите вторую строку");

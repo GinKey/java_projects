@@ -1,6 +1,7 @@
 package java_tasks;
 
 import  java.sql.*;
+
 public class Mysqlconnection {
     Connection _con;
 
@@ -13,30 +14,8 @@ public class Mysqlconnection {
         return stmt.executeQuery(sql);
     }
 
-    public PreparedStatement Insert_into(String tablename, int table_num) throws SQLException{
-        String query;
-        if (table_num == 1){
-            query = "INSERT INTO " + tablename + " (value1, operation, value2, answer) VALUES (?, ?, ?, ?)";
-
-        }
-        else if (table_num == 2){
-            query = "INSERT INTO " + tablename  + " ( string1, string2, len_string1, len_string2, string_sum, comparison) VALUES (?, ?, ?, ?, ?, ?)";
-
-        }
-        else if(table_num == 3)
-        {
-            query = "INSERT INTO " + tablename  + " ( number, description) VALUES (?, ?)";
-        }
-        else if(table_num == 4)
-        {
-            query = "INSERT INTO " + tablename  + " ( string1, string2, substring1, substring2, lower1, lower2, upper1, upper2, endswith1, endwith2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        }
-        else
-        {
-            query = "INSERT INTO " + tablename + " (string1, string2, reverse1, reverse2, append) VALUES (?, ?, ?, ?, ?)";
-        }
-        return this._con.prepareStatement(query);
+    public PreparedStatement Insert_into(String tablename, String qw) throws SQLException{
+        return this._con.prepareStatement("INSERT INTO " + tablename + qw);
     }
 
     public void Create_table(String tablename, int table_num) throws SQLException{

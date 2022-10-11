@@ -12,7 +12,7 @@ public class Third_num {
         System.out.println("Введите число или 'stop'");
         String str = scan.nextLine();
         Mysqlconnection con = new Mysqlconnection(myurl, login, password);
-        PreparedStatement stmt = con.Insert_into(tablename, 3);
+        PreparedStatement stmt = con.Insert_into(tablename, " ( number, description) VALUES (?, ?)");
         while (!"stop".equals(str))
         {
             try {
